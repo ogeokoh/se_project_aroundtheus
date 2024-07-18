@@ -28,7 +28,7 @@ Project 3 was centered on adaptive web design. First time using figma instead of
 
 **Publication**  
 
-Pages: https://oonexus.github.io/se_project_aroundtheus/index.html
+Pages: [https://oonexus.github.io/se_project_aroundtheus/index.html](https://oonexus.github.io/se_project_aroundtheus/)
 
 **Project Recording** 
 
