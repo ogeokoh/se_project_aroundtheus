@@ -20,4 +20,14 @@ The way you'll do this at work is by exporting images directly from Figma — we
   
 Good luck and have fun!
 
+**About**  
+
+Project 3 was centered on adaptive web design. First time using figma instead of a brief, and also the first attempt at using both grid and flex displays. Was interesting figuring out what situations worked best with either. 
+
+**Publication**  
+
 Pages: https://oonexus.github.io/se_project_aroundtheus/index.html
+
+**Project Recording** 
+
+google drive: https://drive.google.com/file/d/1gCxIevHu8DWfyGALD2RCdm61MJI-oHD_/view?usp=drive_link
