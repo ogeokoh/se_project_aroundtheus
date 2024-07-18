@@ -21,30 +21,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-
-.card__title-yosemite {
-  width: 193px;
-}
-
-.card__title-louise {
-  width: 142px;
-}
-
-.card__title-bald {
-  width: 187px;
-}
-
-.card__title-latemar {
-  width: 100px;
-}
-
-.card__title-vanoise {
   width: 210px;
-}
-
-.card__title-lago {
-  width: 167px;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29.05px;
 }
 
 .card__image {
