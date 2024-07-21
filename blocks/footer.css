@@ -2,13 +2,31 @@
   display: flex;
   margin-bottom: 60px;
   margin-top: 67px;
+  max-width: 318px;
+  max-width: 880px;
+  width: 100%;
+  position: relative;
+}
+
+.footer__copy {
   color: #545454;
+  line-height: 18px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 @media screen and (max-width: 480px) {
   .footer {
     margin-bottom: 36px;
     margin-top: 48px;
-    justify-content: center;
+    max-width: 282px;
+    width: 100%;
+    position: relative;
+  }
+
+  .footer__copy {
+    line-height: 14px;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
