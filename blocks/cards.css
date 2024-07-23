@@ -55,6 +55,7 @@
   height: 18px;
   margin-top: 26px;
   border: none;
+  cursor: pointer;
 }
 
 .cards__like-button:hover {
