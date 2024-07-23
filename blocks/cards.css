@@ -59,4 +59,15 @@
 
 .cards__like-button:hover {
   opacity: 0.5;
+  transition-duration: 2s;
+}
+
+@media screen and (max-width: 480px) {
+  .cards {
+    margin-top: 36px;
+  }
+
+  .cards__list {
+    grid-column-gap: 20px;
+  }
 }
