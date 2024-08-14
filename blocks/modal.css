@@ -1,0 +1,124 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 19px;
+}
+
+.modal__opened {
+  display: flex;
+}
+
+.modal__container {
+  background-color: #fff;
+  padding: 34px 36px 36.51px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  width: 358px;
+}
+
+.modal__form-title {
+  height: 27.26px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #000;
+  box-sizing: border-box;
+  border-color: gray;
+  padding: 0;
+}
+
+.modal__form-description {
+  height: 27.34px;
+  margin: 29.74px 0 0;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #000;
+  box-sizing: border-box;
+  padding: 0;
+  border-color: gray;
+}
+
+.modal__button {
+  margin-top: 48px;
+  max-width: 358px;
+  height: 50.15px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 2px;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.modal__button:hover {
+  opacity: 0.7;
+  transition-duration: 2s;
+}
+
+.modal__heading {
+  color: black;
+  max-width: 330px;
+  height: 33px;
+  font-size: 24px;
+  line-height: 29.05px;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+}
+
+.modal__close {
+  background-image: url("../images/Close.svg");
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: -45px;
+  right: -45px;
+}
+
+.modal__close:hover {
+  opacity: 0.6;
+  transition-duration: 2s;
+}
+
+@media screen and (max-width: 630px) {
+  .modal__container {
+    padding: 25px 22px 25px;
+  }
+
+  .modal__form {
+    width: 282px;
+  }
+
+  .modal__heading {
+    margin-bottom: 75px;
+    font-size: 18px;
+    line-height: 21.78px;
+  }
+
+  .modal__close {
+    width: 26px;
+    height: 26px;
+    top: -40px;
+    right: 0;
+  }
+
+  .modal__button {
+    margin-top: 45px;
+  }
+}
