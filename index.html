@@ -30,14 +30,16 @@
             class="profile__image"
           />
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title" id="profile-title">Jacques Cousteau</h1>
             <button
               type="button"
               class="profile__edit-button"
               id="profile-edit-button"
               aria-label="Edit profile"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description" id="profile-description">
+              Explorer
+            </p>
           </div>
           <button
             type="button"
@@ -46,98 +48,7 @@
           ></button>
         </section>
         <section class="cards page__section">
-          <ul class="cards__list">
-            <li class="cards__list-item">
-              <img
-                src="./images/yosemite.jpg"
-                class="cards__image"
-                alt="Yosemite Valley Photo"
-              />
-              <div class="cards__description">
-                <h2 class="cards__title">Yosemite Valley</h2>
-                <button
-                  type="button"
-                  class="cards__like-button"
-                  aria-label="Like this photo"
-                ></button>
-              </div>
-            </li>
-            <li class="cards__list-item">
-              <img
-                src="./images/lake-louise.jpg"
-                class="cards__image"
-                alt="Lake Louise Photo"
-              />
-              <div class="cards__description">
-                <h2 class="cards__title">Lake Louise</h2>
-                <button
-                  type="button"
-                  class="cards__like-button"
-                  aria-label="Like this photo"
-                ></button>
-              </div>
-            </li>
-            <li class="cards__list-item">
-              <img
-                src="./images/bald-mountains.jpg"
-                class="cards__image"
-                alt="Bald Mountains Photo"
-              />
-              <div class="cards__description">
-                <h2 class="cards__title">Bald Mountains</h2>
-                <button
-                  type="button"
-                  class="cards__like-button"
-                  aria-label="Like this photo"
-                ></button>
-              </div>
-            </li>
-            <li class="cards__list-item">
-              <img
-                src="./images/latemar.jpg"
-                class="cards__image"
-                alt="Latemar"
-              />
-              <div class="cards__description">
-                <h2 class="cards__title">Latemar</h2>
-                <button
-                  type="button"
-                  class="cards__like-button"
-                  aria-label="Like this photo"
-                ></button>
-              </div>
-            </li>
-            <li class="cards__list-item">
-              <img
-                src="./images/vanoise.jpg"
-                class="cards__image"
-                alt="Vanoise National Park Photo"
-              />
-              <div class="cards__description">
-                <h2 class="cards__title">Vanoise National Park</h2>
-                <button
-                  type="button"
-                  class="cards__like-button"
-                  aria-label="Like this photo"
-                ></button>
-              </div>
-            </li>
-            <li class="cards__list-item">
-              <img
-                src="./images/lago.jpg"
-                class="cards__image"
-                alt="Logo di Braies Photo"
-              />
-              <div class="cards__description">
-                <h2 class="cards__title">Lago di Braies</h2>
-                <button
-                  type="button"
-                  class="cards__like-button"
-                  aria-label="Like this photo"
-                ></button>
-              </div>
-            </li>
-          </ul>
+          <ul class="cards__list"></ul>
         </section>
       </main>
       <footer class="footer page__section">
@@ -152,6 +63,7 @@
           <input
             type="text"
             name="title"
+            id="profile-title-input"
             class="modal__form-title"
             placeholder="Jacques Cousteau"
           />
@@ -159,12 +71,28 @@
             type="text"
             name="description"
             class="modal__form-description"
+            id="profile-description-input"
             placeholder="Explorer"
           />
           <button class="modal__button">Save</button>
         </form>
       </div>
     </div>
+
+    <template id="card-template">
+      <li class="cards__list-item">
+        <img src="" class="cards__image" alt="" />
+        <div class="cards__description">
+          <h2 class="cards__title"></h2>
+          <button
+            type="button"
+            class="cards__like-button"
+            aria-label="Like this photo"
+          ></button>
+        </div>
+      </li>
+    </template>
+
     <script src="./scripts/index.js"></script>
   </body>
 </html>
