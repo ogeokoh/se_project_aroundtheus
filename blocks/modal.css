@@ -12,7 +12,7 @@
   padding: 19px;
 }
 
-.modal__opened {
+.modal_opened {
   display: flex;
 }
 
@@ -100,14 +100,17 @@
 @media screen and (max-width: 630px) {
   .modal__container {
     padding: 25px 22px 25px;
+    max-width: 238px;
+    height: 272px;
   }
 
   .modal__form {
-    width: 282px;
+    width: 238px;
   }
 
   .modal__heading {
     margin-bottom: 75px;
+    margin-top: 0;
     font-size: 18px;
     line-height: 21.78px;
     max-width: 238px;
@@ -122,6 +125,8 @@
   }
 
   .modal__button {
-    margin-top: 45px;
+    margin-bottom: 0;
+    max-width: 238px;
+    height: 46px;
   }
 }
