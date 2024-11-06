@@ -31,7 +31,7 @@ const initialCards = [
 ];
 
 /* Elements */
-
+/* Edit Profile */
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileEditCloseButton = document.querySelector(
@@ -47,6 +47,9 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+
+/* Add Card */
+const addCardButton = document.querySelector("#add-card-modal");
 
 /* Functions*/
 
