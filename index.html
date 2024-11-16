@@ -44,6 +44,7 @@
           <button
             type="button"
             class="profile__add-button"
+            id="profile-add-button"
             aria-label="Add to profile"
           ></button>
         </section>
@@ -60,7 +61,7 @@
       <div class="modal__container">
         <button class="modal__close" id="profile-edit-close-button"></button>
         <p class="modal__heading">Edit Profile</p>
-        <form class="modal__form">
+        <form class="modal__form" id="edit-profile-form">
           <input
             type="text"
             name="title"
@@ -85,7 +86,7 @@
       <div class="modal__container">
         <button class="modal__close" id="add-card-close-button"></button>
         <p class="modal__heading">New Place</p>
-        <form class="modal__form">
+        <form class="modal__form" id="add-card-form">
           <input
             type="text"
             name="title"
@@ -105,9 +106,18 @@
       </div>
     </div>
 
+    <!--Preview Modal-->
+    <div class="modal preview-image-modal" id="preview-image-modal">
+      <div class="modal__container">
+        <button class="modal__close" id="preview-image-close-button"></button>
+        <img src="" alt="" class="preview-image-modal__image" />
+      </div>
+    </div>
+
     <template id="card-template">
       <li class="cards__list-item">
         <img src="" class="cards__image" alt="" />
+
         <div class="cards__description">
           <h2 class="cards__title"></h2>
           <button
@@ -116,6 +126,11 @@
             aria-label="Like this photo"
           ></button>
         </div>
+        <button
+          type="button"
+          class="cards__trash-button"
+          aria-label="Delete this photo"
+        ></button>
       </li>
     </template>
 
