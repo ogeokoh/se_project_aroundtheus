@@ -58,6 +58,9 @@ const previewImage = document.querySelector(".preview-image-modal__image");
 const previewImageCloseButton = document.querySelector(
   "#preview-image-close-button"
 );
+const previewImageCaption = document.querySelector(
+  ".preview-image-modal__caption"
+);
 
 /* Add Card Form */
 const cardTitleInput = addCardForm.querySelector("#add-card-title-input");
@@ -85,9 +88,10 @@ function renderCard(cardData, wrapper) {
   wrapper.prepend(cardElement);
 }
 
-function openPreviewImageModal(src, alt) {
+function openPreviewImageModal(src, alt, name) {
   previewImage.src = src;
   previewImage.alt = alt;
+  previewImageCaption.textContent = name;
   previewImageModal.classList.add("modal_opened");
 }
 
