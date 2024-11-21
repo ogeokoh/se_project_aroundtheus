@@ -72,13 +72,6 @@ function closePopup(modal) {
   modal.classList.remove("modal_opened");
 }
 
-/* function openModal() {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-
-  profileEditModal.classList.add("modal_opened");
-}; */
-
 function openModal(modal) {
   modal.classList.add("modal_opened");
 }
@@ -88,11 +81,10 @@ function renderCard(cardData, wrapper) {
   wrapper.prepend(cardElement);
 }
 
-function openPreviewImageModal(src, alt, name) {
+function openPreviewImageModal(src, alt) {
   previewImage.src = src;
   previewImage.alt = alt;
-  previewImageCaption.textContent = name;
-  previewImageModal.classList.add("modal_opened");
+  openModal(previewImageModal);
 }
 
 function getCardElement(cardData) {
@@ -103,26 +95,16 @@ function getCardElement(cardData) {
   // find delete button
   const trashButton = cardElement.querySelector(".cards__trash-button");
 
-  // add event listener to delete button
-  //  call cardelement.remove(); when the delete button is clicked
   trashButton.addEventListener("click", () => {
     cardElement.remove();
   });
 
-  // Open a third modal, different figma style, add a click listener to card image
-  // Open modal with previewImageModal, add it to HTML
-  /* cardImageEl.addEventListener("click", () => {
-    openModal(previewImageModal);
-    previewImageModal.classList.add("modal_opened");
-  }); */
-
   cardImageEl.addEventListener("click", () => {
     previewImage.src = cardData.link;
     previewImage.alt = cardData.name;
+    previewImageCaption.textContent = cardData.name;
     openModal(previewImageModal);
   });
-
-  // Read inner article on transition, use visibility hidden and not use display None
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("cards__like-button_active");
@@ -148,6 +130,8 @@ function handleAddCardFormSubmit(e) {
   const link = cardLinkInput.value;
   renderCard({ name, link }, cardListEl);
   closePopup(addNewCardModal);
+  cardTitleInput.value = "";
+  cardLinkInput.value = "";
 }
 
 /* Event Listeners */
@@ -156,7 +140,7 @@ profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
 
-  profileEditModal.classList.add("modal_opened");
+  openModal(profileEditModal);
 });
 
 profileEditCloseButton.addEventListener("click", () =>
@@ -176,10 +160,5 @@ addNewCardButton.addEventListener("click", () => openModal(addNewCardModal));
 addNewCardCloseButton.addEventListener("click", () =>
   closePopup(addNewCardModal)
 );
-
-/* initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
-}); */
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
