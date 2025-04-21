@@ -70,21 +70,17 @@ const cardLinkInput = addCardForm.querySelector("#add-card-link-input");
 
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscClose);
 }
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscClose);
 }
 
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
   wrapper.prepend(cardElement);
-}
-
-function openPreviewImageModal(src, alt) {
-  previewImage.src = src;
-  previewImage.alt = alt;
-  openModal(previewImageModal);
 }
 
 function getCardElement(cardData) {
@@ -156,7 +152,11 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 // Add new card button listener
-addNewCardButton.addEventListener("click", () => openModal(addNewCardModal));
+addNewCardButton.addEventListener("click", () => {
+  resetFormAndValidation(addCardForm);
+  openModal(addNewCardModal);
+});
+
 addNewCardCloseButton.addEventListener("click", () =>
   closePopup(addNewCardModal)
 );

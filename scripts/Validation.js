@@ -71,30 +71,16 @@ function setupModalClosers() {
       }
     });
   });
-
-  // Close by pressing Esc key
-  document.addEventListener("keydown", (evt) => {
-    if (evt.key === "Escape") {
-      const openedModal = document.querySelector(".modal_opened");
-      if (openedModal) {
-        closePopup(openedModal);
-      }
-    }
-  });
 }
 
-// Reset form validation when opening modals
-function resetFormValidation(formElement, config) {
-  const inputList = Array.from(
-    formElement.querySelectorAll(config.inputSelector)
-  );
-  const buttonElement = formElement.querySelector(config.submitButtonSelector);
-
-  inputList.forEach((inputElement) => {
-    hideInputError(formElement, inputElement, config);
-  });
-
-  toggleButtonState(inputList, buttonElement, config);
+// Close by pressing Esc key
+function handleEscClose(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    if (openedModal) {
+      closePopup(openedModal);
+    }
+  }
 }
 
 const config = {
