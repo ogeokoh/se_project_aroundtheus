@@ -112,32 +112,6 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-function resetFormAndValidation(formElement) {
-  // Reset the form fields
-  formElement.reset();
-
-  // Reset validation states
-  const inputList = [...formElement.querySelectorAll(".modal__input")];
-  const submitButton = formElement.querySelector(".modal__button");
-
-  // Hide all error messages
-  inputList.forEach((inputEl) => {
-    const errorMessageEl = formElement.querySelector(`#${inputEl.id}-error`);
-    inputEl.classList.remove("modal__input_type_error");
-    errorMessageEl.textContent = "";
-    errorMessageEl.classList.remove("modal__error_visible");
-  });
-
-  // Reset button state
-  if (inputList.some((input) => !input.validity.valid)) {
-    submitButton.classList.add("modal__button_disabled");
-    submitButton.disabled = true;
-  } else {
-    submitButton.classList.remove("modal__button_disabled");
-    submitButton.disabled = false;
-  }
-}
-
 /* Event Handlers */
 function handleProfileEditSubmit(e) {
   e.preventDefault();

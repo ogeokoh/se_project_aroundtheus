@@ -5,13 +5,6 @@ function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   errorMessageEl.classList.add(errorClass);
 }
 
-function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
-  const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
-  inputEl.classList.remove(inputErrorClass);
-  errorMessageEl.textContent = "";
-  errorMessageEl.classList.remove(errorClass);
-}
-
 function checkInputValidity(formEl, inputEl, options) {
   if (!inputEl.validity.valid) {
     return showInputError(formEl, inputEl, options);
@@ -81,6 +74,23 @@ function handleEscClose(evt) {
       closePopup(openedModal);
     }
   }
+}
+
+function resetFormAndValidation(formElement) {
+  // Reset the form fields
+  formElement.reset();
+
+  // Reset validation states
+  const inputList = [...formElement.querySelectorAll(config.inputSelector)];
+  const submitButton = formElement.querySelector(config.submitButtonSelector);
+
+  // Hide all error messages using the existing function
+  inputList.forEach((inputEl) => {
+    hideInputError(formElement, inputEl, config);
+  });
+
+  // Reset button state using the existing function
+  toggleButtonState(inputList, submitButton, config);
 }
 
 const config = {
