@@ -54,6 +54,10 @@ This project was built in multiple phases:
 - Card filtering and sorting options
 
 
+## Project Link
+https://ogeokoh.github.io/se_project_aroundtheus/
+
+
 ## Author
 
 **Oge Okoh** - Full Stack Developer
