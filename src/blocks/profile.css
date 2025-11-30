@@ -4,13 +4,52 @@
   padding-top: 40px;
 }
 
+/* NEW: wrap the avatar so we can show the hover pencil overlay */
+.profile__avatar-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-right: 24px; /* moved from .profile__image */
+}
+
+/* Avatar image stays the same, but margin-right moved to the container */
 .profile__image {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
   background-position: center;
-  margin-right: 24px;
+}
+
+/* NEW: the pencil/overlay button shown on hover (26x26 per Figma) */
+.profile__avatar-edit-button {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  /* dark overlay + pencil icon centered */
+  background: rgba(0, 0, 0, 0.6) url(../images/edit-icon.svg) center / 26px 26px
+    no-repeat;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 1;
+}
+
+/* Reveal the edit icon & dim image on hover */
+.profile__avatar-container:hover .profile__avatar-edit-button {
+  opacity: 1;
+}
+
+.profile__avatar-container:hover .profile__image {
+  filter: brightness(60%);
+}
+
+/* Keyboard accessibility: show when focused */
+.profile__avatar-edit-button:focus-visible {
+  opacity: 1;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 .profile__title {
@@ -99,8 +138,9 @@
     line-height: 26.63px;
   }
 
-  .profile__image {
-    margin: 0;
+  /* Container handles spacing on mobile too */
+  .profile__avatar-container {
+    margin-right: 0;
   }
 
   .profile__edit-button {
@@ -124,4 +164,78 @@
     width: 100%;
     max-width: 282px;
   }
+}
+
+.profile__avatar-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-right: 24px;
+}
+
+.profile__image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-position: center;
+}
+
+.profile__avatar-edit-button {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.6) url(../images/edit-icon.svg) center / 26px 26px
+    no-repeat;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 1;
+}
+
+.profile__avatar-container:hover .profile__avatar-edit-button {
+  opacity: 1;
+}
+.profile__avatar-container:hover .profile__image {
+  filter: brightness(60%);
+}
+
+.profile__avatar-edit-button:focus-visible {
+  opacity: 1;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* mobile spacing */
+@media (max-width: 770px) {
+  .profile__avatar-container {
+    margin-right: 0;
+  }
+}
+
+/* I-scoped overrides */
+#avatar-edit-modal .modal__container {
+  width: 430px;
+  max-width: 90vw;
+}
+#avatar-edit-modal .modal__heading {
+  margin: 0 0 24px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 23px;
+}
+#avatar-edit-modal .modal__input {
+  border: 0;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  border-radius: 0;
+  height: 27px;
+  padding: 0 0 8px;
+  background: transparent;
+}
+#avatar-edit-modal .modal__button {
+  width: 358px;
+  height: 50px;
+  display: block;
+  margin: 24px auto 0;
 }

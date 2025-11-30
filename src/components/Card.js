@@ -1,35 +1,73 @@
 export default class Card {
-  constructor(data, cardSelector, handleImageClick) {
+  // NEW: accept handleLikeToggle and initial isLiked from server
+  constructor(
+    data,
+    cardSelector,
+    handleImageClick,
+    handleDeleteClick,
+    handleLikeToggle
+  ) {
     this._name = data.name;
     this._link = data.link;
+    this._id = data._id;
+    this._isLiked = Boolean(data.isLiked); // <- server field
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
+    this._handleDeleteClick = handleDeleteClick;
+    this._handleLikeToggle = handleLikeToggle;
   }
 
   _setEventListeners() {
-    // Like button event listener
+    // Like button -> delegate to external toggle handler
     this._likeButton.addEventListener("click", () => {
-      this._handleLikeClick();
+      if (typeof this._handleLikeToggle === "function") {
+        this._handleLikeToggle(this);
+      }
     });
 
-    // Delete button event listener
+    // Delete button -> external confirm handler
     this._deleteButton.addEventListener("click", () => {
-      this._handleDeleteClick();
+      if (typeof this._handleDeleteClick === "function") {
+        this._handleDeleteClick(this);
+      }
     });
 
-    // Image click event listener
+    // Image click preview
     this._cardImage.addEventListener("click", () => {
       this._handleImageClick({ name: this._name, link: this._link });
     });
   }
 
-  _handleLikeClick() {
-    this._likeButton.classList.toggle("cards__like-button_active");
+  // UI helpers for like state
+  _applyLikeUI() {
+    this._likeButton.classList.toggle(
+      "cards__like-button_active",
+      this._isLiked
+    );
   }
 
-  _handleDeleteClick() {
-    this._cardElement.remove();
-    this._cardElement = null;
+  // Public: update like state from server result
+  setLiked(isLiked) {
+    this._isLiked = Boolean(isLiked);
+    this._applyLikeUI();
+  }
+
+  // Public: read current like state
+  isLiked() {
+    return this._isLiked;
+  }
+
+  // Public: used after server confirms deletion
+  remove() {
+    if (this._cardElement) {
+      this._cardElement.remove();
+      this._cardElement = null;
+    }
+  }
+
+  // Public: expose server id
+  getId() {
+    return this._id;
   }
 
   _getTemplate() {
@@ -40,10 +78,8 @@ export default class Card {
   }
 
   generateCard() {
-    // Get the card template
     this._cardElement = this._getTemplate();
 
-    // Get card elements
     this._cardImage = this._cardElement.querySelector(".cards__image");
     this._cardTitle = this._cardElement.querySelector(".cards__title");
     this._likeButton = this._cardElement.querySelector(".cards__like-button");
@@ -51,15 +87,14 @@ export default class Card {
       ".cards__trash-button"
     );
 
-    // Set card data
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
     this._cardTitle.textContent = this._name;
 
-    // Set event listeners
-    this._setEventListeners();
+    // Initialize like UI from server flag
+    this._applyLikeUI();
 
-    // Return the card element
+    this._setEventListeners();
     return this._cardElement;
   }
 }
